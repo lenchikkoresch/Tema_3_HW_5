@@ -46,7 +46,8 @@ int GetNegativeSumm(int[] array)
             sum += array[i];
     }
     return sum;
-}
+    
+
 
 (int, int) GetSummsFromArray(int[] array)
 {
