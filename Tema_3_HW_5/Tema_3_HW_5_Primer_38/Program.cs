@@ -43,15 +43,12 @@ arr[i] = rnd.Next(-99,100);
 return arr;
 }
 
-int dimension = GetLength ("Введите размер массива");
-double[] array = InitArray(dimension);
-Console.WriteLine(string.Join(",", array));
+(double, double) GetMinMaxFromArray(double[] array)
+{
+    double max = array [0];
+    double min = array [0];;
 
-
-double min = Int32.MaxValue;
-double max = Int32.MinValue;
-
-for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
 {
     if (array[i] > max)
         {
@@ -62,5 +59,13 @@ for (int i = 0; i < array.Length; i++)
             min = array[i];
         }
 }
-Console.WriteLine($"всего {array.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
+    return (max, min);
+}
+int n = GetLength ("Введите размер массива");
+double[] arra = InitArray(n);
+Console.WriteLine(string.Join(",", arra));
+(double max, double min) = GetMinMaxFromArray(arra);
+
+
+Console.WriteLine($"всего {arra.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
 Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
