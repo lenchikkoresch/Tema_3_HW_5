@@ -13,6 +13,24 @@
 5. Находим разницу между максимальным и минимальным элементами массива
 6. Выводим на экран
 */
+int GetLength (string message)
+{
+    int resultLength =0;
+    while(true)
+    {
+       Console.WriteLine(message);
+        if (int.TryParse(Console.ReadLine(), out resultLength) && 1<resultLength)
+        {
+            break;
+        }
+        else
+        {
+            Console.WriteLine("Число ввели некорректно");
+        }
+      }
+    return resultLength; 
+}
+
 
 double [] InitArray ( int dimension)
 {
@@ -25,13 +43,10 @@ arr[i] = rnd.Next(-99,100);
 return arr;
 }
 
-
-Console.WriteLine();
-double[] array = InitArray(15);
-//int sum = SumEvenPosizion (array);
-
+int dimension = GetLength ("Введите размер массива");
+double[] array = InitArray(dimension);
 Console.WriteLine(string.Join(",", array));
-//Console.WriteLine($"-> Cуммa элементов {sum}, стоящих на нечётных позициях");
+
 
 double min = Int32.MaxValue;
 double max = Int32.MinValue;
