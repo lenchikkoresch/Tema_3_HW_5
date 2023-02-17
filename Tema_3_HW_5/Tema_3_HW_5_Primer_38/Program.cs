@@ -14,9 +14,9 @@
 6. Выводим на экран
 */
 
-int [] InitArray ( int dimension)
+double [] InitArray ( int dimension)
 {
-int [] arr = new int [dimension];
+double [] arr = new double [dimension];
 Random rnd = new Random();
 for (int i=0; i<dimension; i++)
 {
@@ -24,3 +24,28 @@ arr[i] = rnd.Next(-99,100);
 }
 return arr;
 }
+
+
+Console.WriteLine();
+double[] array = InitArray(15);
+//int sum = SumEvenPosizion (array);
+
+Console.WriteLine(string.Join(",", array));
+//Console.WriteLine($"-> Cуммa элементов {sum}, стоящих на нечётных позициях");
+
+double min = Int32.MaxValue;
+double max = Int32.MinValue;
+
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i] > max)
+        {
+            max = array[i];
+        }
+    if (array[i] < min)
+        {
+            min = array[i];
+        }
+}
+Console.WriteLine($"всего {array.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
+Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
